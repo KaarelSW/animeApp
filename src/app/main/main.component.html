@@ -1,0 +1,24 @@
+<h1>AnimeApp</h1>
+
+<div class="searchDiv">
+
+    <span class="p-float-label">
+        <input id="float-input" 
+               type="text" 
+               pInputText           
+               #user_search
+               (keydown.enter)="search()"
+               [disabled]="isLoading"> 
+        <label for="float-input">Usuario</label>
+    </span>
+    
+    <br>
+     
+    <button pButton
+            label="Buscar"
+            type="button" 
+            icon="pi pi-search" 
+            [loading]="isLoading"
+            (click)="search()"></button>
+
+</div>
