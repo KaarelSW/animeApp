@@ -1,0 +1,29 @@
+<hr class="divider">
+
+<a href="{{userSummary.url}}" target="blank">
+<p-card class="summary-card">
+    <div class="summary-content">
+
+        <div class="summary-image">
+            <img src="{{userSummary.image_url}}"/>
+        </div>
+
+        <div class="summary-stats">
+
+            <h2>{{ userSummary.username }}</h2>
+            <hr>
+            <ul>
+                <li>Ha visto <b>{{ userSummary.anime_stats.completed }}</b> temporadas de anime.</li>
+                <li>Actualmente viendo <b>{{ userSummary.anime_stats.watching }}</b> animes.</li>
+                <li>Ha dejado de lado <b>{{ userSummary.anime_stats.dropped + userSummary.anime_stats.on_hold }}</b> animes.</li>
+                <li>Ha vuelto a ver <b>{{ userSummary.anime_stats.rewatched }}</b> temporadas de anime.</li>
+                <li>En total ha visto <b>{{ userSummary.anime_stats.episodes_watched }}</b> episodios de anime.</li>
+                <li>La puntuación media otorgada es de <b>{{ userSummary.anime_stats.mean_score }}</b>.</li>
+                <li>Empezó en MyAnimeList en el <b>{{ userSummary.joined | date:'d/M/yyyy' }}</b>.</li>
+            </ul>
+
+        </div>
+
+    </div>
+</p-card>
+</a>

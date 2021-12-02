@@ -1,5 +1,11 @@
-<app-main (onUserEmitter)="onUserEmitterEvent( $event )"></app-main>
+<app-main (onUserCompletedAnimesEmitter)="onUserCompletedAnimesEmitter( $event )"
+          (onUserSummaryEmitter)="onUserSummaryEmitter( $event )"></app-main>
 
-<app-charts *ngIf="userSearched"
-           [completedAnimes]="userSearched.anime">        
+<app-summary *ngIf="userSummary"
+             [userSummary]="userSummary"></app-summary>
+
+<app-charts *ngIf="userCompletedAnimes"
+           [completedAnimes]="userCompletedAnimes.anime">        
 </app-charts>
+
+<app-achivements *ngIf="userSummary"></app-achivements>

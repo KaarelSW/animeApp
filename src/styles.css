@@ -14,9 +14,13 @@ h1{
     margin-bottom: 33px;
 }
 
-h2{
+.divider{
+    margin: 50px 0 20px 0;
+}
+
+.score-card h2, .demog-card h2{
     font-family: manga;
-    font-size: 30px;
+    font-size: 35px;
     color: white;
     margin: 0;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -31,12 +35,11 @@ h2{
 .charts-div{
     display: grid;
     grid-template-columns: 50% 50%;
-    margin-top: 50px;
 }
 
 .p-card{
     border-radius: 0.75rem !important;
-    margin: 2% 5% 10% 5%;
+    margin: 2% 5% 5% 5%;
     text-align: center;
 }
 
@@ -48,7 +51,67 @@ label{
     color: rgba(255, 255, 255, 0.87) !important;
 }
 
+.summary-card .p-card{
+    transition: 300ms all;
+}
+
+.summary-card .p-card:hover{
+    background: #0d3c61;
+    cursor: pointer;
+}
+
+.summary-content{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 15px 0;
+}
+
+.summary-image{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-image img{
+    border-radius: 0.75rem;
+    border: 2px solid #304562;
+    width: 100%;
+    max-width: 400px;
+    transition: 400ms all;
+}
+
+.summary-stats{
+    text-align: start;
+    padding: 0 20px;
+}
+
+.summary-stats h2{
+    font-family: manga;
+    font-size: 45px;
+    color: white;
+    margin: 0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.summary-stats ul{
+    list-style: none;
+    text-align: start;
+    padding-left: 0;
+}
+
+.summary-stats li{
+    font-size: 20px;
+    line-height: 36px;
+}
+
+
 @font-face{
     font-family: manga;
     src: url(./assets/fonts/manga.TTF)
+}
+
+a{
+    text-decoration: none;
 }

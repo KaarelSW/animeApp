@@ -5,7 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { ChartsComponent } from './charts/charts.component';
+import { ChartsComponent } from './stats/charts/charts.component';
+import { AchivementsComponent } from './stats/achivements/achivements.component';
+import { SummaryComponent } from './stats/summary/summary.component';
+
 
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
@@ -19,7 +22,9 @@ import { ChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     MainComponent,
-    ChartsComponent
+    ChartsComponent,
+    AchivementsComponent,
+    SummaryComponent
   ],
   imports: [
     AppRoutingModule,

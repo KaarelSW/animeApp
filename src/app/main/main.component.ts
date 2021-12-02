@@ -1,5 +1,6 @@
 import { Component, ElementRef, Output, ViewChild } from '@angular/core';
 import { User } from '../interfaces/userCompleted.interface';
+import { UserSummary } from '../interfaces/userSummary.interface';
 import { AnimeService } from '../services/anime.service';
 import Swal from 'sweetalert2';
 import { EventEmitter } from '@angular/core';
@@ -17,12 +18,14 @@ export class MainComponent  {
   
   @ViewChild('user_search') user_search!: ElementRef<HTMLInputElement>;
 
-  @Output() onUserEmitter: EventEmitter<User> = new EventEmitter();
+  @Output() onUserCompletedAnimesEmitter: EventEmitter<User> = new EventEmitter();
+  @Output() onUserSummaryEmitter: EventEmitter<UserSummary> = new EventEmitter();
 
   constructor( private animeService: AnimeService ) { }
 
   isLoading: boolean = false;
-  userSearched!: User
+  userCompletedAnimes!: User;
+  userSummary!: UserSummary;
 
   search(){
 
@@ -31,14 +34,20 @@ export class MainComponent  {
     // Si devuelve falso, significa que el valor introducido no es válido y no hago la petición.
     if (!this.inputValidators( username )) return;
 
-    // Petición a la API
+    // Peticiones a la API
     this.isLoading = true;
-    this.animeService.searchUser( username ).subscribe( res =>{
-      this.userSearched = res;
-      this.onUserEmitter.emit(this.userSearched);
-      console.log( this.userSearched.anime );
+        
+    this.animeService.searchUserSummary( username ).subscribe( res =>{
+      this.onUserSummaryEmitter.emit(res);
+    });
+
+    this.animeService.searchUserCompletedAnimes( username ).subscribe( res =>{
+      this.userCompletedAnimes = res;
+      this.onUserCompletedAnimesEmitter.emit(this.userCompletedAnimes);
+      console.log( this.userCompletedAnimes.anime );
       this.isLoading = false;
     });
+    
   }
   
   inputValidators( text: string ){
