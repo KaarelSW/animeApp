@@ -1,6 +1,6 @@
 import { Component, ElementRef, Output, ViewChild } from '@angular/core';
 import { User } from '../interfaces/userCompleted.interface';
-import { UserSummary } from '../interfaces/userSummary.interface';
+import { UserFriends, UserSummary } from '../interfaces/userSummary.interface';
 import { AnimeService } from '../services/anime.service';
 import Swal from 'sweetalert2';
 import { EventEmitter } from '@angular/core';
@@ -20,12 +20,12 @@ export class MainComponent  {
 
   @Output() onUserCompletedAnimesEmitter: EventEmitter<User> = new EventEmitter();
   @Output() onUserSummaryEmitter: EventEmitter<UserSummary> = new EventEmitter();
+  @Output() onUserFriendsEmitter: EventEmitter<UserFriends> = new EventEmitter();
 
   constructor( private animeService: AnimeService ) { }
 
   isLoading: boolean = false;
-  userCompletedAnimes!: User;
-  userSummary!: UserSummary;
+  
 
   search(){
 
@@ -37,17 +37,35 @@ export class MainComponent  {
     // Peticiones a la API
     this.isLoading = true;
         
-    this.animeService.searchUserSummary( username ).subscribe( res =>{
-      this.onUserSummaryEmitter.emit(res);
-    });
-
-    this.animeService.searchUserCompletedAnimes( username ).subscribe( res =>{
-      this.userCompletedAnimes = res;
-      this.onUserCompletedAnimesEmitter.emit(this.userCompletedAnimes);
-      console.log( this.userCompletedAnimes.anime );
-      this.isLoading = false;
+    this.animeService.searchUserSummary( username )
+        .subscribe( res =>{
+        this.onUserSummaryEmitter.emit(res);
     });
     
+    this.animeService.searchUserFriends( username )
+        .subscribe( res =>{
+        this.onUserFriendsEmitter.emit(res); 
+        console.log('Colegas: ');
+        console.log(res);
+    });
+
+    this.animeService.searchUserCompletedAnimes( username )
+        .subscribe( res =>{
+          this.onUserCompletedAnimesEmitter.emit(res);
+          console.log( res.anime );
+          this.isLoading = false;
+        }, err => {
+
+          Swal.fire({
+            title: 'Error :(',
+            text: 'Usuario no encontrado. Verifica que esté correctamente escrito incluyendo mayúsculas y minúsculas.',
+            icon: 'error',
+            confirmButtonText: 'Ok u.u'
+          });
+
+          this.isLoading = false;
+        });
+        
   }
   
   inputValidators( text: string ){

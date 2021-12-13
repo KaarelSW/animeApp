@@ -4,8 +4,15 @@
 <app-summary *ngIf="userSummary"
              [userSummary]="userSummary"></app-summary>
 
-<app-charts *ngIf="userCompletedAnimes"
+<app-charts *ngIf="userSummary"
            [completedAnimes]="userCompletedAnimes.anime">        
 </app-charts>
 
-<app-achivements *ngIf="userSummary"></app-achivements>
+<app-achivements *ngIf="userSummary"
+                 [userCompletedAnimes]="userCompletedAnimes.anime"
+                 [userSummary]="userSummary">
+</app-achivements>
+
+<!---
+    [userFriends]="userFriends.friends"
+-->

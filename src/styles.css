@@ -18,7 +18,7 @@ h1{
     margin: 50px 0 20px 0;
 }
 
-.score-card h2, .demog-card h2{
+.score-card h2, .demog-card h2, .type-card h2, .decade-card h2{
     font-family: manga;
     font-size: 35px;
     color: white;
@@ -104,6 +104,46 @@ label{
 .summary-stats li{
     font-size: 20px;
     line-height: 36px;
+}
+
+.achivements-title{
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    font-size: 40px;
+    text-align: center;    
+    margin-top: 40px;
+}
+
+.achivement-card{
+    display: flex;
+    flex-direction: row;
+}
+
+.achivement-img{
+    width: 30%;
+}
+
+.achivement-img img{
+    max-width: 200px;
+    width: 100%;
+    border-radius: 0.75rem;
+}
+
+.achivement-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.achivement-content h3{
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    font-size: 42px;
+    margin: 0 0;
+}
+
+.achivement-content h4{
+    font-size: 23px;
+    margin: 0 0;
 }
 
 

@@ -4,9 +4,17 @@
 <p-card class="summary-card">
     <div class="summary-content">
 
-        <div class="summary-image">
+        <div *ngIf="userSummary.image_url !== null; else placeholderPic" 
+             class="summary-image">
             <img src="{{userSummary.image_url}}"/>
         </div>
+
+        <ng-template #placeholderPic>
+            <div class="summary-image">
+                <img src="../../../assets/pictures/punpun.jpg"/>
+            </div>                     
+        </ng-template>
+        
 
         <div class="summary-stats">
 

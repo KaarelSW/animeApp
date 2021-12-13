@@ -1,1 +1,10 @@
-<p>achivements works!</p>
+<div class="achivements-title">
+    <h2>Logros</h2>
+</div>
+<hr>
+
+<app-semi-hikikomori *ngIf="semiHikikomori()"></app-semi-hikikomori>
+<app-hikikomori *ngIf="hikikomori()"></app-hikikomori>
+<app-coleguita *ngIf="true"></app-coleguita>
+<app-next *ngIf="next()"></app-next>
+<app-nostalgia *ngIf="nostalgia()"></app-nostalgia>

@@ -50,3 +50,18 @@ export interface MangaStats {
     chapters_read: number;
     volumes_read:  number;
 }
+
+export interface UserFriends {
+    request_hash:         string;
+    request_cached:       boolean;
+    request_cache_expiry: number;
+    friends:              Friend[];
+}
+
+export interface Friend {
+    url:           string;
+    username:      string;
+    image_url:     string;
+    last_online:   Date;
+    friends_since: Date;
+}

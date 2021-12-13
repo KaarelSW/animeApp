@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './interfaces/userCompleted.interface';
-import { UserSummary } from './interfaces/userSummary.interface';
+import { UserFriends, UserSummary } from './interfaces/userSummary.interface';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,12 @@ export class AppComponent {
   title = 'animeApp';
   userCompletedAnimes!: User;
   userSummary!: UserSummary;
+  userFriends!: UserFriends;
 
+  
+  onUserFriendsEmitter( event: UserFriends ){
+    this.userFriends = event;
+  }  
   
   onUserCompletedAnimesEmitter( event: User ){
     this.userCompletedAnimes = event;

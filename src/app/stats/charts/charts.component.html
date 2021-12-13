@@ -33,4 +33,36 @@
 
   </p-card>
 
+  <p-card class="type-card">
+
+    <h2>Tipo de anime</h2>
+    <hr>
+
+    <div style="display: block">
+      <canvas baseChart
+        [data]="doughnutTypeChartData"
+        [labels]="doughnutTypeChartLabels"
+        [chartType]="doughnutTypeChartType">
+      </canvas>
+    </div>
+
+  </p-card>
+
+  <p-card class="decade-card">
+
+    <h2>Décadas</h2>
+    <hr>
+  
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="barChartDecadeData"
+        [labels]="barChartDecadeLabels"
+        [options]="barChartDecadeOptions"
+        [legend]="barChartDecadeLegend"
+        [chartType]="barChartDecadeType">
+      </canvas>
+    </div>
+  
+  </p-card>
+
 </div>
